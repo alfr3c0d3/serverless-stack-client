@@ -6,6 +6,7 @@ import LoaderButton from '../components/LoaderButton';
 import config from '../config';
 import s3Upload from '../libs/awsLib';
 import onError from '../libs/errorLib';
+import "./Notes.css";
 
 const Notes = () => {
   const file = useRef(null);
@@ -17,7 +18,7 @@ const Notes = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const loadNote = () => API.get('notes', `/notes/:${id}`);
+    const loadNote = () => API.get('notes', `/notes/${id}`);
 
     const onLoad = async () => {
       try {
