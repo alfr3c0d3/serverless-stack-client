@@ -17,9 +17,6 @@ export const Routes = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route>
-          <NotFound />
-        </Route>
         <UnauthenticatedRoute exact path="/login">
           <Login />
         </UnauthenticatedRoute>
@@ -35,6 +32,9 @@ export const Routes = () => {
         <AuthenticatedRoute exact path="/settings">
           <Settings />
         </AuthenticatedRoute>
+        <Route>
+          <NotFound />
+        </Route>
       </Switch>
     </div>
   );
