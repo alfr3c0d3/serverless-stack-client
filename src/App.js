@@ -5,7 +5,7 @@ import { Routes } from './Routes';
 import { LinkContainer } from 'react-router-bootstrap';
 import { AppContext } from './libs/contextLib';
 import { Auth } from 'aws-amplify';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import onError from './libs/errorLib';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   const handleLogout = async () => {
     await Auth.signOut();
     userHasAuthenticated(false);
-    history.push("/login");
+    history.push('/login');
   };
 
   useEffect(() => {
@@ -47,7 +47,12 @@ function App() {
           <Navbar.Collapse className="justify-content-end">
             <Nav>
               {isAuthenticated ? (
-                <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                <>
+                  <LinkContainer to="/settings">
+                    <Nav.Link>Settings</Nav.Link>
+                  </LinkContainer>
+                  <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                </>
               ) : (
                 <>
                   <LinkContainer to="/signup">
